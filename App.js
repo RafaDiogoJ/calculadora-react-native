@@ -3,14 +3,29 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import Visor from './components/Visor';
 import Botao from './components/Botao';
+import { useState } from 'react';
+
+const estadoInicial = {
+  valorVisor:'0',
+  limparVisor: false,
+  operacao: null,
+  valores: [0,0],
+  valorCorrente: 0
+}
 
 export default function App() {
+  const [estadoCalculadora, setEstadoCalculadora] = useState({...estadoInicial})
+
+  const limparMemoria = () => {
+    setEstadoCalculadora({...estadoInicial});
+  } 
+
   return (
     <View style={estilos.container}>
         <Visor />
       <View style={estilos.botoes}>
 
-        <Botao label="AC" triplo/>
+        <Botao label="AC" onClick={limparMemoria} triplo/>
         <Botao label="/" operador/>
         <Botao label="7"/>
         <Botao label="8"/>
