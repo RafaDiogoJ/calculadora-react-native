@@ -5,7 +5,7 @@ export default props => {
         <View style ={estilos.visor}>
             <Text style ={estilos.valorVisor}
                 numberOflines={1}>
-                    10
+                    {props.valor}
             </Text>
         </View>
     )
